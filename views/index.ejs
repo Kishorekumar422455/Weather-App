@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Weather App</title>
+        <link rel="stylesheet" href="/style.css"/>
+        <link rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Weather App using Node.js</h1>
+            <form action="/weather" method="get">
+                Enter City Name:
+                <input type="text" name="cityName" placeholder="Enter City Name" required/>
+               <!-- <input type="text" name="stateCode" placeholder="Enter State Code" required/> -->
+                <!-- <input type="text" name="countryCode" placeholder="Enter Country Code" required/> -->
+                <button type="submit" id="submit">Get Weather</button>
+            </form>
+            <% if(error){ %>
+                <p class="error"><%=error%></p>
+                <%} else if(weather){ %>
+                <div class=" card weather-info">
+                    <p>
+                        <i class="fas fa-temperature-half" style="color:rgb(253, 149, 30)"></i>
+                         Temperature: <%=weather.main.temp%>&deg;F
+                    </p>
+                    <p><i class="fas fa-water" style="color:blue"></i>Humdity:<%=weather.main.humidity%> </p>
+                    <p><i class="fas fa-cloud" style="color:grey;"></i><%=weather.weather[0].main%></p>
+                    <p><i class=" fas fa-map-marker-alt"></i><%=weather.name%>,<%=weather.sys.country%></p>
+                </div>
+                <%}%>
+        </div>
+    </body>
+</html>
